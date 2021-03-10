@@ -21,3 +21,13 @@ params:
     filter: ""
     snp: ""
     count: ""
+  alleyoop:
+    dedup: ""
+    collapse: ""
+    rates: ""
+    tccontext: ""
+    utrrates: ""
+    snpeval: ""
+    tcperreadpos: ""
+    tcperutrpos: ""
+    dump: ""

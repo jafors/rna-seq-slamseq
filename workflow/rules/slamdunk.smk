@@ -15,7 +15,7 @@ rule slamdunk_map:
     log:
         "logs/slamdunk-map/{sample}.log"
     conda:
-        "envs/slamdunk.yaml"
+        "../envs/slamdunk.yaml"
     threads:
         10
     shell:
@@ -34,7 +34,7 @@ rule slamdunk_filter:
     log:
         "logs/slamdunk-filter/{sample}.log"
     conda:
-        "envs/slamdunk.yaml"
+        "../envs/slamdunk.yaml"
     threads:
         10
     shell:
@@ -52,7 +52,7 @@ rule slamdunk_snp:
     log:
         "logs/slamdunk-snp/{sample}.log"
     conda:
-        "envs/slamdunk.yaml"
+        "../envs/slamdunk.yaml"
     threads:
         10
     shell:
@@ -65,7 +65,7 @@ rule slamdunk_count:
         snp="results/snp/{sample}_slamdunk_mapped_filtered.vcf",
         utr3="resources/utr3.bed"
     output:
-        "results/count/{sample}_slamdunk_mapped_filtered_tcount.csv"
+        "results/count/{sample}_slamdunk_mapped_filtered_tcount.tsv"
     params:
         extra=config["params"]["slamdunk"]["count"],
         outdir=lambda wc, input, output: os.path.dirname(output[0]),
@@ -73,7 +73,7 @@ rule slamdunk_count:
     log:
         "logs/slamdunk-count/{sample}.log"
     conda:
-        "envs/slamdunk.yaml"
+        "../envs/slamdunk.yaml"
     threads:
         10
     shell:
