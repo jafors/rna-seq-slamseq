@@ -1,0 +1,23 @@
+# This file should contain everything to configure the workflow on a global scale.
+# In case of sample based data, it should be complemented by a samples.tsv file that contains
+# one row per sample. It can be parsed easily via pandas.
+samples: "config/samples.tsv"
+units: "config/units.tsv"
+
+ref:
+  # Number of chromosomes to consider for calling.
+  # The first n entries of the FASTA will be considered.
+  n_chromosomes: 24
+  # Ensembl species name
+  species: homo_sapiens
+  # Ensembl release (make sure to take one where snpeff data is available, check 'snpEff databases' output)
+  release: 100
+  # Genome build
+  build: GRCh38
+
+params:
+  slamdunk:
+    map: "-ss"
+    filter: ""
+    snp: ""
+    count: ""
