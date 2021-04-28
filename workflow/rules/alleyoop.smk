@@ -122,7 +122,7 @@ rule tcperreadpos:
         ref="resources/genome.fasta",
         snp="results/snp/{sample}_slamdunk_mapped_filtered.vcf"
     output:
-        multiext("results/tcperreadpos/{sample}_slamdunk_mapped_filtered_tcperreadpos", ".csv", ".pdf")
+        multiext("results/{sample}_slamdunk_mapped_filtered_tcperreadpos", ".csv", ".pdf")
     params:
         extra=config["params"]["alleyoop"]["tcperreadpos"],
         outdir=lambda wc, input, output: os.path.dirname(output[0]),
@@ -142,7 +142,7 @@ rule tcperutrpos:
         utr3="resources/utr3.bed",
         snp="results/snp/{sample}_slamdunk_mapped_filtered.vcf"
     output:
-        multiext("results/tcperutrpos/{sample}_slamdunk_mapped_filtered_tcperutr", ".csv", ".pdf")
+        multiext("results/{sample}_slamdunk_mapped_filtered_tcperutr", ".csv", ".pdf")
     params:
         extra=config["params"]["alleyoop"]["tcperutrpos"],
         outdir=lambda wc, input, output: os.path.dirname(output[0]),
@@ -172,17 +172,3 @@ rule dump:
         "../envs/slamdunk.yaml"
     shell:
         "alleyoop dump -r {input.ref} -o {params.outdir} -s {params.snp} {params.extra} {input.bam}"
-
-rule multiqc:
-    input:
-        expand("results/tcperutrpos/{sample}_slamdunk_mapped_filtered_tcperutr.csv", sample=samples["sample_name"]),
-        expand("results/tcperreadpos/{sample}_slamdunk_mapped_filtered_tcperreadpos.csv", sample=samples["sample_name"]),
-        expand("results/utrrates/{sample}_slamdunk_mapped_filtered_mutationrates_utr.csv", sample=samples["sample_name"]),
-        expand("results/rates/{sample}_slamdunk_mapped_filtered_overallrates.csv", sample=samples["sample_name"]),
-        "results/summary.txt"
-    output:
-        "results/multiqc/multiqc.html"
-    conda:
-        "../envs/multiqc.yaml"
-    shell:
-        "multiqc results -o results/multiqc"

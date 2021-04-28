@@ -1,11 +1,8 @@
-def get_input_files(wildcards):
-    sample_units = units.loc[wildcards.sample]
-    return sample_units["fq1"]
 
 rule slamdunk_map:
     input:
         ref="resources/genome.fasta",
-        files=get_input_files
+        files=get_reads
     output:
         "results/map/{sample}_slamdunk_mapped.bam"
     params:
