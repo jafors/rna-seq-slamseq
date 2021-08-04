@@ -4,18 +4,20 @@
 
 report: "report/workflow.rst"
 
+
 # Allow users to fix the underlying OS via singularity.
-singularity: "docker://continuumio/miniconda3"
+container: "docker://continuumio/miniconda3"
 
 
 rule all:
     input:
         # The first rule should define the default target files
         # Subsequent target rules can be specified below. They should start with all_*.
-        "results/qc/multiqc/multiqc.html"
+        "results/qc/multiqc/multiqc_report.html",
 
 
 include: "rules/common.smk"
+include: "rules/utils.smk"
 include: "rules/ref.smk"
 include: "rules/slamdunk.smk"
 include: "rules/alleyoop.smk"

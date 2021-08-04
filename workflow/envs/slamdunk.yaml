@@ -2,5 +2,5 @@ channels:
   - bioconda
   - conda-forge
   - defaults
-dependencise:
+dependencies:
   - slamdunk ==0.4.3
