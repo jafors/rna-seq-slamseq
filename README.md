@@ -3,8 +3,9 @@
 [![Snakemake](https://img.shields.io/badge/snakemake-≥5.7.0-brightgreen.svg)](https://snakemake.bitbucket.io)
 [![Build Status](https://travis-ci.org/snakemake-workflows/rna-seq-slamseq.svg?branch=master)](https://travis-ci.org/snakemake-workflows/rna-seq-slamseq)
 
-This is the template for a new Snakemake workflow. Replace this text with a comprehensive description covering the purpose and domain.
-Insert your code into the respective folders, i.e. `scripts`, `rules`, and `envs`. Define the entry point of the workflow in the `Snakefile` and the main configuration in the `config.yaml` file.
+This is a workflow to analyse RNA sequencing data produced following the [SLAMseq](https://www.nature.com/articles/nmeth.4435) protocol.
+It makes use of the [SLAMdunk toolkit](https://t-neumann.github.io/slamdunk/index.html), combining all necessary steps of the SLAMdunk analysis with other tasks such as indexing BAM files, fastq quality assessment and finally creates a extensive multiqc report.
+
 
 ## Authors
 
