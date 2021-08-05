@@ -37,7 +37,6 @@ def get_multiqc_input(wildcards):
                     "_overallrates.csv",
                     "_tccontext.csv",
                     "_mutationrates_utr.csv",
-                    "_SNPeval.csv",
                 )
                 for x in expand(
                     "results/alleyoop/{sample}_slamdunk_mapped_sorted_filtered",

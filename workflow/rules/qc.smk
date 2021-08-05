@@ -21,7 +21,7 @@ rule multiqc:
     output:
         "results/qc/multiqc/multiqc_report.html",
     log:
-        "logs/multiqc.log"
+        "logs/multiqc.log",
     conda:
         "../envs/multiqc.yaml"
     shell:

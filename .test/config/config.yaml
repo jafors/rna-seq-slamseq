@@ -1,0 +1,34 @@
+# path or URL to sample sheet (TSV format, columns: sample, condition, ...)
+samples: config/samples.tsv
+# path or URL to sequencing unit sheet (TSV format, columns: sample, unit, fq1, fq2)
+# Units are technical replicates (e.g. lanes, or resequencing of the same biological
+# sample).
+units: config/units.tsv
+
+ref:
+  # Number of chromosomes to consider for calling.
+  # The first n entries of the FASTA will be considered.
+  n_chromosomes: 24
+  # Ensembl species name
+  species: homo_sapiens
+  # Ensembl release (make sure to take one where snpeff data is available, check 'snpEff databases' output)
+  release: 100
+  # Genome build
+  build: GRCh38
+
+params:
+  slamdunk:
+    map: "-ss"
+    filter: ""
+    snp: ""
+    count: "--max-read-length 101"
+  alleyoop:
+    dedup: ""
+    collapse: ""
+    rates: ""
+    tccontext: ""
+    utrrates: "--max-read-length 101"
+    snpeval: "--max-read-length 101"
+    tcperreadpos: "--max-read-length 101"
+    tcperutrpos: "--max-read-length 101"
+    dump: ""
