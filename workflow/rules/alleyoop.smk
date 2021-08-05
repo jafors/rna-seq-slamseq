@@ -140,10 +140,11 @@ rule summary:
         "logs/alleyoop-summary.log",
     params:
         countdir=lambda wc, input: os.path.dirname(input["tcount"][0]),
+        outfile=lambda wc, input, output: output[0],
     conda:
         "../envs/slamdunk.yaml"
     shell:
-        "alleyoop summary -o {output[0]} -t {params.countdir} {input.bam} > {log} 2>&1"
+        "alleyoop summary -o {params.outfile} -t {params.countdir} {input.bam} > {log} 2>&1"
 
 
 rule tcperreadpos:

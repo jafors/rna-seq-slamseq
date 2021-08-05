@@ -45,6 +45,7 @@ def get_multiqc_input(wildcards):
             ]
         )
     )
+    data.append("results/alleyoop/summary.txt")
     return data
 
 
